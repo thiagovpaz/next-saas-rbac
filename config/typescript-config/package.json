@@ -1,0 +1,13 @@
+{
+  "name": "@saas/typescript-config",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "files": ["library.json", "node.json"]
+}
