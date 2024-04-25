@@ -1,6 +1,9 @@
 import fastifyCors from '@fastify/cors'
+import fastifySwagger from '@fastify/swagger'
+import fastifySwaggerUI from '@fastify/swagger-ui'
 import fastify from 'fastify'
 import {
+  jsonSchemaTransform,
   serializerCompiler,
   validatorCompiler,
   ZodTypeProvider,
@@ -14,6 +17,21 @@ app.setSerializerCompiler(serializerCompiler)
 app.setValidatorCompiler(validatorCompiler)
 
 app.register(fastifyCors)
+
+app.register(fastifySwagger, {
+  openapi: {
+    info: {
+      title: 'Next.JS SaaS',
+      description: 'Full-stack SaaS with multi-tenant & RBAC.',
+      version: '1.0.0',
+    },
+    servers: [],
+  },
+  transform: jsonSchemaTransform,
+})
+app.register(fastifySwaggerUI, {
+  routePrefix: '/docs',
+})
 
 app.register(createAccount)
 
