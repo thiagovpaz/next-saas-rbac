@@ -5,6 +5,8 @@ import { hash } from 'bcryptjs'
 const prisma = new PrismaClient()
 
 async function seed() {
+  await prisma.member.deleteMany()
+  await prisma.project.deleteMany()
   await prisma.organization.deleteMany()
   await prisma.user.deleteMany()
 
@@ -14,7 +16,7 @@ async function seed() {
     data: {
       name: 'John Doe',
       email: 'john@acme.com',
-      avatarUrl: 'https://github.com/diego3g.png',
+      avatarUrl: 'https://github.com/thiagovpaz.png',
       passwordHash,
     },
   })
@@ -22,7 +24,7 @@ async function seed() {
   const anotherUser = await prisma.user.create({
     data: {
       name: faker.person.fullName(),
-      email: faker.internet.email(),
+      email: faker.internet.email().toLowerCase(),
       avatarUrl: faker.image.avatarGitHub(),
       passwordHash,
     },
@@ -31,7 +33,7 @@ async function seed() {
   const anotherUser2 = await prisma.user.create({
     data: {
       name: faker.person.fullName(),
-      email: faker.internet.email(),
+      email: faker.internet.email().toLowerCase(),
       avatarUrl: faker.image.avatarGitHub(),
       passwordHash,
     },
