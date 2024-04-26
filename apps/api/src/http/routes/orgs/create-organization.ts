@@ -5,7 +5,7 @@ import { z } from 'zod'
 import { auth } from '@/http/middlewares/auth'
 import { BadRequestError } from '@/http/routes/_errors/bad-request-error'
 import { prisma } from '@/lib/prisma'
-import { createSlug } from '@/utils/createSlug'
+import { createSlug } from '@/utils/create-slug'
 
 export async function createOrganization(app: FastifyInstance) {
   app

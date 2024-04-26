@@ -23,9 +23,13 @@ import { getMembership } from '@/http/routes/orgs/get-membership'
 import { getOrganization } from '@/http/routes/orgs/get-organization'
 import { getOrganizations } from '@/http/routes/orgs/get-organizations'
 import { shutdownOrganization } from '@/http/routes/orgs/shutdown-organization'
+import { transferOrganization } from '@/http/routes/orgs/transfer-organization'
 import { updateOrganization } from '@/http/routes/orgs/update-organization'
-
-import { transferOrganization } from './routes/orgs/transfer-organization'
+import { createProject } from '@/http/routes/projects/create-project'
+import { deleteProject } from '@/http/routes/projects/delete-project'
+import { getProject } from '@/http/routes/projects/get-project'
+import { getProjects } from '@/http/routes/projects/get-projects'
+import { updateProject } from '@/http/routes/projects/update-project'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -69,6 +73,7 @@ app.register(authenticateWithGithub)
 app.register(getProfile)
 app.register(requestPasswordRecover)
 app.register(resetPassword)
+
 app.register(createOrganization)
 app.register(getMembership)
 app.register(getOrganization)
@@ -76,6 +81,12 @@ app.register(getOrganizations)
 app.register(updateOrganization)
 app.register(shutdownOrganization)
 app.register(transferOrganization)
+
+app.register(createProject)
+app.register(deleteProject)
+app.register(getProject)
+app.register(getProjects)
+app.register(updateProject)
 
 app.listen({ port: env.SERVER_PORT }).then(() => {
   console.log('HTTP server running!')
