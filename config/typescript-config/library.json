@@ -1,6 +1,3 @@
-// 20240419180340
-// https://raw.githubusercontent.com/rocketseat-education/course-saas-next-rbac/main/config/typescript-config/library.json
-
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "_version": "3.0.0",
