@@ -9,5 +9,5 @@
   "devDependencies": {
     "typescript": "^5.4.5"
   },
-  "files": ["library.json", "node.json"]
+  "files": ["library.json", "node.json", "next.json"]
 }
